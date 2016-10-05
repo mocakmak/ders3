@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Uyelik Formu</h2>
+
+<div class="panel panel-danger">
+    <div class="panel-heading">Giriş Yapın</div>
+    <div class="panel-body">
+        
+        @if (ViewBag.GirisBasarisiz)
+        {
+            if (Request.Form["username"] == "murat" && Request.Form["password"]=="123" )
+            {
+                <div class="alert alert-success" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Hata:</span>
+                    Giriş Yapıldı
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Hata:</span>
+                    Giriş Yapılamadı
+                </div>
+            }
+
+        }
+
+        <form class="form-group" method="post">
+            <label for="username">Kullanıcı Adı</label>
+            <input class="form-control" name="username" placeholder="Kullanıcı Adı" value="@Request.Form[" username"]" />
+            <label for="password">Şifre</label>
+            <input class="form-control" name="password" type="password" placeholder="Şifre"/>
+            <br />
+            <input type="submit" value="gönder" class="form-control btn-primary" />
+
+        </form>
+    
+    </div>
+</div> 
+
